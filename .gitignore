@@ -1,0 +1,4 @@
+# Copied from lorestore/ by `python tools/lx.py setup`
+/agents/
+/workflows/
+__pycache__/

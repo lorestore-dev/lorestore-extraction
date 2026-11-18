@@ -1,0 +1,31 @@
+{
+  "folders": [
+    { "name": "workspace", "path": "." },
+    { "name": "spec", "path": "lorestore/spec" }
+  ],
+  "settings": {
+    "files.eol": "\r\n",
+    "files.exclude": { "**/__pycache__": true },
+    "search.exclude": { "extraction/*/*/texts": true, "lorestore": true },
+    "markdown.validate.enabled": true,
+    "[markdown]": { "editor.wordWrap": "off", "files.trimTrailingWhitespace": false },
+    "chat.promptFiles": true
+  },
+  "extensions": {
+    "recommendations": ["ms-python.python", "yzhang.markdown-all-in-one", "anthropic.claude-code"]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "inputs": [
+      { "id": "pkg", "type": "promptString", "description": "Package path", "default": "oliver-twist/base" }
+    ],
+    "tasks": [
+      { "label": "lx: setup", "type": "shell", "command": "python tools/lx.py setup",
+        "runOptions": { "runOn": "folderOpen" }, "problemMatcher": [] },
+      { "label": "lx: status", "type": "shell", "command": "python tools/lx.py status ${input:pkg}", "problemMatcher": [] },
+      { "label": "lx: merge (dry run)", "type": "shell", "command": "python tools/lx.py merge ${input:pkg} --dry", "problemMatcher": [] },
+      { "label": "lx: merge", "type": "shell", "command": "python tools/lx.py merge ${input:pkg}", "problemMatcher": [] },
+      { "label": "lx: index", "type": "shell", "command": "python tools/lx.py index ${input:pkg}", "problemMatcher": [] }
+    ]
+  }
+}

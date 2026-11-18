@@ -1,0 +1,6 @@
+[submodule "lorestore"]
+	path = lorestore
+	url = https://github.com/lorestore-dev/lorestore.git
+[submodule "worlds/oliver-twist/base"]
+	path = worlds/oliver-twist/base
+	url = ../oliver-twist
